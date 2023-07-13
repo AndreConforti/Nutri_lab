@@ -25,6 +25,14 @@
                     <h2 class="titulo">Seja bem vindo</h2>
                     <p class="sub-titulo">Crie sua conta</p>
                     <hr>
+                    {% if messages %}
+				        <br>
+                        {% for message in messages %}
+                            <div class="alert {{message.tags}}">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     
                     <form action="{% url 'autenticacao:cadastro' %}" method="POST">
                         {% csrf_token %}
